@@ -9,6 +9,6 @@ def getBondPrice(y, face, couponRate, m, ppy=1):
     for t in range(1, totalPeriods + 1):
         bondPrice += periodicCoupon / ((1 + periodicYield) ** t)
         
-    bond_price += face / ((1 + periodicYield) ** totalPeriods)
+    bondPrice += face / ((1 + periodicYield) ** totalPeriods)
     
-    return round(bond_price)
+    return round(bondPrice)
