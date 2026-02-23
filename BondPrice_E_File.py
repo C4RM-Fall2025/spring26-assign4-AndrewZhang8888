@@ -12,4 +12,3 @@ def getBondPrice_E(face, couponRate, yc):
         bond_price += cash_flow / ((1 + rate) ** t)
         
     return round(bond_price)
-
