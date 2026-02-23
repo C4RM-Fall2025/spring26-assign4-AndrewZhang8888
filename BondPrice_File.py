@@ -1,8 +1,14 @@
-
-
+#Assume Standard Bond Price Calculation Given Payments Per Year 
 def getBondPrice(y, face, couponRate, m, ppy=1):
-    if ppy == 1:
-        x = 2170604
-    if ppy == 2:
-        x = 2171686
-    return(x)
+    periodicYield = y / ppy
+    periodicCoupon = (face * couponRate) / ppy
+    totalPeriods = int(m * ppy)
+    
+    bondPrice = 0
+    
+    for t in range(1, totalPeriods + 1):
+        bondPrice += periodicCoupon / ((1 + periodicYield) ** t)
+        
+    bond_price += face / ((1 + periodicYield) ** totalPeriods)
+    
+    return round(bond_price)
