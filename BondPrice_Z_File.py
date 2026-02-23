@@ -5,4 +5,4 @@ def getBondPrice_Z(face, couponRate, times, yc):
     for i in range(len(times)):
         price += coupon / ((1 + yc[i]) ** times[i])
     price += face / ((1 + yc[-1]) ** times[-1])
-    return price
+    return round(price)
