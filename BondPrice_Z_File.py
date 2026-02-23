@@ -1,5 +1,8 @@
-#We assume that this is to calculate the Price of a Zero Coupon Bond Given a Yield Curve
+#We assume that this is to calculate the Price of a Bond Given the zero spot yield
 def getBondPrice_Z(face, couponRate, times, yc):
-    rate = yc[times - 1]
-    final_payment = face * (1 + couponRate)
-    return final_payment / ((1 + rate) ** times)
+    price = 0
+    coupon = face * couponRate
+    for i in range(len(times)):
+        price += coupon / ((1 + yc[i]) ** times[i])
+    price += face / ((1 + yc[-1]) ** times[-1])
+    return price
